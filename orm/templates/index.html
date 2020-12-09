@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet"  href="{% static 'css/style.css' %}">    
+</head>
+<body>
+   
+    <h1 class='new-h1'>
+        All the Users
+        </h1>
+            <table class="table" border = "1" cellpadding = "15" cellspacing = "5">
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>email</th>
+                        <th>age</th>
+                    </tr>
+                </thead>
+        {% for obj in objs %}
+        
+            <div>
+            <tr> 
+                <td>{{obj.first_name}} {{obj.last_name}}</td>
+                <td>{{obj.email}}</td>
+                <td>{{obj.age}}</td>
+            </tr>
+                <p> </p>
+            </div>
+        {% endfor %}
+            </table>
+        <div>
+            <header class=header>
+                <h1 class="head">
+                    Add a User 
+                </h1>
+            </header>
+            
+
+        <div class="form">
+            
+            <form action="/" method="post">
+                {% csrf_token %}
+                <div>
+                    <label>First Name: </label>{{form.first_name}}
+                    <labl>Last Name: </label>{{form.last_name}}
+                    </div>
+                    <div>
+                        <label>Email:</label>{{form.email}}
+                        <label>Age: </label>{{form.age}}
+                    </div>
+                    <input class="input" type="submit">
+                </form>
+            </div>
+        </div>
+</body>
+</html>

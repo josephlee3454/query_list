@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet"  href="{% static 'css/style.css' %}">    
+
+</head>
+<body>
+        <h1>
+            to do
+            </h1>
+                <table class="table" border = "1" cellpadding = "15" cellspacing = "5">
+                    <thead>
+                        <tr>
+                            <th>name</th>
+                            <th>email</th>
+                            <th>age</th>
+                        </tr>
+                    </thead>
+            {% for obj in objs %}
+            
+                <div>
+                <tr> 
+                    <td>{{obj.first_name}} {{obj.last_name}}</td>
+                    <td>{{obj.email}}</td>
+                    <td>{{obj.age}}</td>
+                </tr>
+                    <p> </p>
+                </div>
+            {% endfor %}
+                </table>
+
+
+</body>
+</html>

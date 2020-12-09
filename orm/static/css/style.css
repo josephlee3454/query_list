@@ -1,0 +1,28 @@
+.table{
+    width: 700px;
+    text-align: center;
+    margin-left: 30%;
+    margin-bottom: 10%;
+  
+    
+}
+
+.form{
+    display: inline-block;
+    margin-left: 35%;
+    
+}
+.head{
+    text-align: center;
+}
+.input{
+    margin-left: 35%;
+}
+header{
+    margin-left: 20%;
+    border-top: 5px solid black;
+    width: 55%;
+}
+.new-h1{
+    text-align: center;
+}
