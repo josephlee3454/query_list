@@ -1,0 +1,50 @@
+>>> from orm.models import *
+>>> user_name.objects.create(first_name= "joe", last_name= "lee", email="hello@gmail.com", age=28)
+<user_name: user_name object (1)>
+>>> user_name.objects.create(first_name= "joseph", last_name= "paulson", email="bye@gmail.com", age=29)
+<user_name: user_name object (2)>
+>>> user_name.objects.create(first_name= "jojo", last_name= "mojo", email="lol@gmail.com", age=27)
+<user_name: user_name object (3)>
+>>> user_name.objects.all
+<bound method BaseManager.all of <django.db.models.manager.Manager object at 0x7fdccc76c6a0>>
+>>> user_name.objects.all()
+<QuerySet [<user_name: user_name object (1)>, <user_name: user_name object (2)>, <user_name: user_name object (3)>]>
+>>> user_name.objects.get(id=3)
+<user_name: user_name object (3)>
+>>> print(user_name.objects.get(id=3))
+user_name object (3)
+>>> print(user_name.objects.get(id=1))
+user_name object (1)
+>>> user_name.objects.get(id=3)
+<user_name: user_name object (3)>
+>>> print(user_name.objects.get(id=1))
+user_name object (1)
+>>> user_name.objects.get(id=1)
+>>> user_name.objects.get(id=3)
+<user_name: user_name object (3)>
+>>> print(user_name.objects.get(id=1))
+user_name object (1)
+>>> new_user = user_name.objects.get(id=3).last_name
+>>> print(new_user)
+mojo
+
+>>> user_name.objects.get(id=2).delete()
+(1, {'orm.user_name': 1})
+>>> user_name.objects.all()
+<QuerySet [<user_name: user_name object (1)>, <user_name: user_name object (3)>]>
+>>> 
+
+
+>>> user_name.objects.all().order_by('last_name').values_list('last_name', flat=True)
+<QuerySet ['lee', 'mojo']>
+new>>> 
+
+
+
+>>> for user in users:
+...     print(user.first_name)
+... 
+joe
+jojo
+>>> 
+
